@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Vehicule:index{% endblock %}
+
+{% block body %}
+<h1>Bienvenu sur notre showroom</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Marque</th>
+			<th>Immatriculation</th>
+			<th>Couleur</th>
+			<th>Tarif</th>
+			<th colspan="2">Action</th>
+		</tr>	
+    </thead>
+    <tbody>
+    	{% for vehicule in vehicules %}
+    		<tr>
+    			<td>{{ vehicule.nom }}</td>
+    			<td>{{ vehicule.marque }}</td>
+    			<td>{{ vehicule.immatriculation }}</td>
+    			<td>{{ vehicule.couleur }}</td>
+    			<td>{{ vehicule.tarif }}</td>
+    			<td><a href="{{ path('delete',{'id':vehicule.id}) }}" onclick="return confirm('Confirmer la suppression ?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
+    			<td><a href="{{ path('edit',{'id':vehicule.id}) }}"><i class="fa fa-pencil"></i></a></td>
+    		</tr>	
+    </tbody>
+        {% endfor %}
+</table>	
+{% endblock %}

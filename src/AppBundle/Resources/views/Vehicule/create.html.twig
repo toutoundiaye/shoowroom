@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block title %}AppBundle:Vehicule:create{% endblock %}
+{% block body %}
+<div class="container-fluid">
+	<h1>Ajouter un véhicule au showroom</h1>
+		{{ form_start(form) }}
+		<input type="submit" value="Ajouter" class="btn btn-primary">
+		{{ form_end(form) }}
+</div>
+{% endblock %}
